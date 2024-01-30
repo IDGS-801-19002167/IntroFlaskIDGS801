@@ -1,11 +1,75 @@
+<!-- Extends layout -->
 {% extends "layout2.html" %}
 
-{% block container %}
+<!-- Content -->
+{% block content %}
 
+<!-- Macros -->
+{% import "_macros.html" as macros %}
+
+<!-- Form content -->
 <h1>Alumnos UTL</h1>
-<h2>Escuela: {{ titulo }}</h2>
-{% for nom in nombres %}
-<h3 class="text-danger">{{ nom }}</h3>
-{% endfor %}
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+            <form action="" method="POST" novalidate>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <!-- Form group -->
+                        <label for="">Form group</label>
+                        {{ macros.camposNuevos(form.nombre, class="form-control") }}
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <!-- Form group -->
+                        <label for="">Form group</label>
+                        {{ macros.camposNuevos(form.apaterno, class="form-control") }}
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <!-- Form group -->
+                        <label for="">Form group</label>
+                        {{ macros.camposNuevos(form.amaterno, class="form-control") }}
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <!-- Form group -->
+                        <label for="">Form group</label>
+                        {{ macros.camposNuevos(form.email, class="form-control") }}
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <!-- Form group -->
+                        <label for="">Form group</label>
+                        {{ macros.camposNuevos(form.edad, class="form-control") }}
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="btn1" name="btn1">
+                    Enviar
+                </button>
+                
+                
+                <!-- Macros inputs -->
+                <label for="">Macros Inputs</label>
+                {{ macros.datos("Nombre", "NOMBRE") }}
+                {{ macros.datos("Sueldo", "Sueldo", "number") }}
+                {{ macros.datos("Email", "EMAIL", "email") }}
+            
+                <label for="">Form inputs</label>
+                <!-- Form inputs -->
+                {{ form.nombre }} <br />
+                {{ form.email }} <br />
+                {{ form.edad }} <br />
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- END CONTENT -->
 {% endblock %}
