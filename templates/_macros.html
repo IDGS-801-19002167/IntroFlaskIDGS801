@@ -18,4 +18,12 @@
     {{ field(**kwargs) | safe }}
 </dd>
 
+{% if field.errors %}
+<ul style="list-style: none;">
+  {% for error in field.errors %}
+    <li style="color: red">{{ error }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
 {% endmacro %}

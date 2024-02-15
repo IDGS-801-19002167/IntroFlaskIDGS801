@@ -1,17 +1,37 @@
 # WTF imports
 from wtforms import Form
+from wtforms import validators
 from wtforms import StringField,TelField, IntegerField
-from wtforms.validators import DataRequired, Email
 from wtforms import EmailField
+from wtforms.validators import DataRequired, Email
 
 # Flask imports
 from flask_wtf import FlaskForm
 
 # Class
 class UserForm(Form):
-    nombre = StringField("nombre")
-    email = EmailField("email") #crear campo de validacion correcto
-    apaterno = StringField("apaterno")
-    amaterno = StringField("amaterno")
-    edad = IntegerField("edad")
+    nombre = StringField("nombre", [
+        validators.DataRequired(message="El campo es requerido"),
+        validators.length(min=4, max=10, message="Ingresa nombre valido")
+    ])
+    
+    edad = IntegerField("edad", [
+        validators.DataRequired(message="El campo es requerido"),
+        validators.length(min=4, max=10, message="Ingresa nombre valido")
+    ])
+    
+    email = EmailField("email", [
+        validators.Email(message="Ingresa un correo valido"),
+        validators.length(min=4, max=10, message="Ingresa nombre valido")
+    ]) 
+    
+    apaterno = StringField("apaterno", [
+        validators.DataRequired(message="El campo es requerido"),
+        validators.length(min=4, max=10, message="Ingresa nombre valido")
+    ])
+    
+    amaterno = StringField("amaterno", [
+        validators.DataRequired(message="El campo es requerido"),
+        validators.length(min=4, max=10, message="Ingresa nombre valido")
+    ])
     
