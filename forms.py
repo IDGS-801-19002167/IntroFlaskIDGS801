@@ -17,21 +17,20 @@ class UserForm(Form):
     
     edad = IntegerField("edad", [
         validators.DataRequired(message="El campo es requerido"),
-        validators.length(min=4, max=10, message="Ingresa nombre valido")
     ])
     
     email = EmailField("email", [
         validators.Email(message="Ingresa un correo valido"),
-        validators.length(min=4, max=10, message="Ingresa nombre valido")
+        validators.length(min=4, max=10, message="Ingresa un correo valido")
     ]) 
     
     apaterno = StringField("apaterno", [
         validators.DataRequired(message="El campo es requerido"),
-        validators.length(min=4, max=10, message="Ingresa nombre valido")
+        validators.length(min=4, max=10, message="Ingresa un Apellido valido")
     ])
     
     amaterno = StringField("amaterno", [
         validators.DataRequired(message="El campo es requerido"),
-        validators.length(min=4, max=10, message="Ingresa nombre valido")
+        validators.length(min=4, max=10, message="Ingresa un Apellido valido")
     ])
     
